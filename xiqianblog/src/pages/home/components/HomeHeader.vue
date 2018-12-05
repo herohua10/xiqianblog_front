@@ -1,20 +1,20 @@
 <template>
-    <div class="row header-area">
+    <div class="header-area">
       <!--顶部导航栏-->
-      <div class="row" style="height: 30px;background-color: #F4F7F8">
+      <div id="site-nav" class="row">
         <div class="col-lg-12"></div>
       </div>
       <!--菜单导航栏-->
-      <div class="row" style="background-color: #ffffff">
+      <div id="menu-nav" class="row">
         <!--标题、描述-->
-        <div class="col-lg-1 col-lg-offset-2" style="height: inherit">
-          <h3>洗钱博客</h3>
-          <p>程序人生，永不止步</p>
+        <div class="col-lg-2 col-lg-offset-1" style="height: inherit;">
+          <h3><strong>{{title}}</strong></h3>
+          <p><i>{{desc}}</i></p>
         </div>
         <!--导航菜单-->
-        <div class="col-lg-4 col-lg-offset-1" style="height: inherit">
+        <div class="col-lg-5" style="height: inherit">
           <ul class="nav nav-pills">
-            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#">首页</a></li>
             <li><a href="#">Java</a></li>
             <li><a href="#">MyBatis</a></li>
             <li><a href="#">算法</a></li>
@@ -35,14 +35,14 @@
             <li><a href="#">其它</a></li>
           </ul>
         </div>
-        <div class="col-lg-2 col-lg-offset-1" style="height: inherit;">
-            <div class="input-group">
-              <input type="text" class="form-control">
+        <div class="col-lg-3" style="height: inherit">
+            <div class="input-group" style="position:absolute;left:0;top: 0;bottom: 0;right: 0;margin: auto">
+              <input type="text" class="form-control" placeholder="搜你想搜...">
               <span class="input-group-btn">
               <button class="btn btn-default" type="button">
-              搜索
+                 <span class="glyphicon glyphicon-search"></span>
               </button></span>
-            </div><!-- /input-group -->
+            </div>
         </div>
       </div>
     </div>
@@ -50,11 +50,29 @@
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  data () {
+    return {
+      title: '洗钱博客',
+      desc: '记录点滴，感动常在'
+    }
+  }
 }
 </script>
 
 <style scoped>
+  #site-nav {
+    height: 30px;
+    background-color: #F4F7F8
+  }
+  #menu-nav {
+    background-color: #ffffff;
+    height: 90px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  }
+
   .nav-pills {
 
   }
@@ -69,13 +87,37 @@ export default {
     text-align: center;
   }
   .nav-pills > li + li {
-    margin-left: 2px;
+    margin-left: 0px;
   }
-  .nav-pills > li.active > a,
-  .nav-pills > li.active > a:hover,
-  .nav-pills > li.active > a:focus {
+  .nav-pills > li > a {
+    color: #000;
+  }
+  .nav-pills > li > a:hover {
     color: #fff;
-    background-color: red;
+    background-color: #666;
   }
+  .nav-pills > li > a:active,
+  .nav-pills > li > a:focus {
+    color: #fff;
+    background-color: #C40000;
+  }
+  .dropdown-menu {
+    border-radius: 0px;
+    margin: auto;
+    padding: 0 0;
+  }
+  .dropdown-menu > li {
 
+  }
+  .dropdown-menu > li > a {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+  .dropdown-menu > li > a:hover {
+    background-color: #a9a9a9;
+  }
+  .divider {
+    margin: auto;
+  }
 </style>
