@@ -8,7 +8,7 @@
       </div>
       <div class="row">
         <div class="col-lg-7 col-lg-offset-1" style="margin-top: 10px;padding: 0 0;">
-          <home-list></home-list>
+          <home-list :articleList="articleList"></home-list>
         </div>
       </div>
    </div>
@@ -29,7 +29,8 @@ export default {
   },
   data () {
     return {
-      swiperList: []
+      swiperList: [],
+      articleList: []
     }
   },
   methods: {
@@ -41,8 +42,8 @@ export default {
       resp = resp.data
       if (resp.ret && resp.data) {
         const data = resp.data
-        console.log(data.swiperList)
         this.swiperList = data.swiperList
+        this.articleList = data.articleList
       }
     }
   },

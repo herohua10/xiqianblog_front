@@ -1,5 +1,5 @@
 <template>
-    <div class="header-area">
+    <div class="header-area row">
       <!--顶部导航栏-->
       <div id="site-nav" class="row">
         <div class="col-lg-12"></div>
