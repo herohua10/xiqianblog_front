@@ -1,0 +1,21 @@
+{
+  "ret": true,
+  "data": {
+    "swiperList": [{
+      "id": "0001",
+      "imgUrl": "./static/imgs/indexswiper/WallpaperStudio10-106834.jpg"
+    },{
+      "id": "0002",
+      "imgUrl": "./static/imgs/indexswiper/WallpaperStudio10-108400.jpg"
+    }, {
+      "id": "0003",
+      "imgUrl": "./static/imgs/indexswiper/WallpaperStudio10-43311.jpg"
+    }, {
+      "id": "0004",
+      "imgUrl": "./static/imgs/indexswiper/WallpaperStudio10-83351.jpg"
+    }, {
+      "id": "0005",
+      "imgUrl": "./static/imgs/indexswiper/WallpaperStudio10-104386.jpg"
+    }]
+  }
+}

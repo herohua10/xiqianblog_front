@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption" @mouseover.native="showNavigation" @mouseout.native="hideNavigation">
+    <swiper :options="swiperOption" v-if="showSwiper"
+            @mouseover.native="showNavigation" @mouseout.native="hideNavigation">
       <!-- slides -->
       <swiper-slide v-for="imgItem of swiperList" :key="imgItem.id">
         <img class="swiper-img" :src="imgItem.imgUrl">
@@ -16,6 +17,9 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    swiperList: Array
+  },
   data () {
     return {
       // 轮播图参数
@@ -35,20 +39,12 @@ export default {
         loop: true,
         effect: 'fade'
       },
-      isShowNavigation: false,
-      swiperList: [{
-        id: '0001',
-        imgUrl: require('@/assets/imgs/indexswiper/WallpaperStudio10-108400.jpg')
-      }, {
-        id: '0002',
-        imgUrl: require('@/assets/imgs/indexswiper/WallpaperStudio10-43311.jpg')
-      }, {
-        id: '0003',
-        imgUrl: require('@/assets/imgs/indexswiper/WallpaperStudio10-83351.jpg')
-      }, {
-        id: '0004',
-        imgUrl: require('@/assets/imgs/indexswiper/WallpaperStudio10-104386.jpg')
-      }]
+      isShowNavigation: false
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.swiperList.length
     }
   },
   methods: {

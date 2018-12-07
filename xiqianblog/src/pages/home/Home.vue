@@ -1,9 +1,14 @@
 <template>
-   <div class="container-fluid">
+   <div class="container-fluid" style="background-color: #F4F7F8">
       <home-header></home-header>
       <div class="row">
-        <div class="col-lg-6 col-lg-offset-1" style="margin-top: 10px; padding: 0 0;">
-          <home-swiper></home-swiper>
+        <div class="col-lg-7 col-lg-offset-1" style="margin-top: 10px; padding: 0 0;">
+          <home-swiper :swiperList="swiperList"></home-swiper>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 col-lg-offset-1" style="margin-top: 10px;padding: 0 0;">
+          <home-list></home-list>
         </div>
       </div>
    </div>
@@ -12,12 +17,37 @@
 <script>
 import HomeHeader from './components/HomeHeader'
 import HomeSwiper from './components/HomeSwiper'
+import HomeList from './components/HomeList'
+import axios from 'axios'
 
 export default {
   name: 'Home',
   components: {
     HomeHeader,
-    HomeSwiper
+    HomeSwiper,
+    HomeList
+  },
+  data () {
+    return {
+      swiperList: []
+    }
+  },
+  methods: {
+    getHomeData () {
+      axios.get('/api/home.json')
+        .then(this.getHomeDataSucc)
+    },
+    getHomeDataSucc (resp) {
+      resp = resp.data
+      if (resp.ret && resp.data) {
+        const data = resp.data
+        console.log(data.swiperList)
+        this.swiperList = data.swiperList
+      }
+    }
+  },
+  mounted () {
+    this.getHomeData()
   }
 }
 </script>
