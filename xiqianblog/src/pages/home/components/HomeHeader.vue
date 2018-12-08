@@ -7,7 +7,7 @@
             Your browser does not support the audio element.
           </audio>
           <div id="music-controls">
-            <span @click="playAndPauseMusic">{{musicTitle}}</span>
+            <span @click="playOrPauseMusic">{{audio.musicTitle}}</span>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
             <li><a href="#">算法</a></li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Spring全家桶 <span class="caret"></span>
+                Spring家族 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
                 <li><a href="#">SpringMvc</a></li>
@@ -65,14 +65,25 @@ export default {
     return {
       title: '洗钱博客',
       desc: '记录点滴，感动常在',
-      musicFlag: false,
-      musicTitle: '播放音乐'
+      audio: {
+        isPlaying: false,
+        musicTitle: '播放音乐'
+      }
     }
   },
   methods: {
-    playAndPauseMusic: function () {
-      this.musicFlag = !this.musicFlag
-      this.musicTitle = this.musicFlag ? '停止播放' : '播放音乐'
+    playOrPauseMusic: function () {
+      this.audio.isPlaying ? this.pauseMusic() : this.playMusic()
+    },
+    playMusic: function () {
+      this.audio.isPlaying = true
+      this.audio.musicTitle = '暂停播放'
+      this.$refs.audio.play()
+    },
+    pauseMusic: function () {
+      this.audio.isPlaying = false
+      this.audio.musicTitle = '播放音乐'
+      this.$refs.audio.pause()
     }
   }
 }
