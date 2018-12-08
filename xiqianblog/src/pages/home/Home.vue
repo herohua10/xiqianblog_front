@@ -1,6 +1,6 @@
 <template>
    <div class="container-fluid" style="background-color: #F4F7F8">
-      <home-header></home-header>
+      <home-header :bgm="bgm"></home-header>
       <div class="row">
         <div class="col-lg-7 col-lg-offset-1" style="margin-top: 10px; padding: 0 0;">
           <home-swiper :swiperList="swiperList"></home-swiper>
@@ -29,6 +29,7 @@ export default {
   },
   data () {
     return {
+      bgm: '',
       swiperList: [],
       articleList: []
     }
@@ -42,6 +43,7 @@ export default {
       resp = resp.data
       if (resp.ret && resp.data) {
         const data = resp.data
+        this.bgm = data.bgm
         this.swiperList = data.swiperList
         this.articleList = data.articleList
       }

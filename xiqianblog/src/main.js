@@ -6,6 +6,7 @@ import $ from 'jquery'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'swiper/dist/css/swiper.css'
+import 'font-awesome/css/font-awesome.min.css'
 
 Vue.config.productionTip = false
 Vue.use(VueAwesomeSwiper, /* { default global options } */)

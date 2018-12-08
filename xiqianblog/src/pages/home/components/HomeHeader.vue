@@ -1,8 +1,15 @@
 <template>
-    <div class="header-area row">
+    <div class="header-area">
       <!--顶部导航栏-->
       <div id="site-nav" class="row">
-        <div class="col-lg-12"></div>
+        <div class="col-lg-2 col-lg-offset-10" id="music-pannel">
+          <audio ref="audio" :src="bgm" autoplay="autoplay" loop="loop">
+            Your browser does not support the audio element.
+          </audio>
+          <div id="music-controls">
+            <span @click="playAndPauseMusic">{{musicTitle}}</span>
+          </div>
+        </div>
       </div>
       <!--菜单导航栏-->
       <div id="menu-nav" class="row">
@@ -51,10 +58,21 @@
 <script>
 export default {
   name: 'HomeHeader',
+  props: {
+    bgm: String
+  },
   data () {
     return {
       title: '洗钱博客',
-      desc: '记录点滴，感动常在'
+      desc: '记录点滴，感动常在',
+      musicFlag: false,
+      musicTitle: '播放音乐'
+    }
+  },
+  methods: {
+    playAndPauseMusic: function () {
+      this.musicFlag = !this.musicFlag
+      this.musicTitle = this.musicFlag ? '停止播放' : '播放音乐'
     }
   }
 }
@@ -119,5 +137,17 @@ export default {
   }
   .divider {
     margin: auto;
+  }
+  #music-pannel {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 0;
+  }
+  #music-controls {
+    cursor: pointer;
+  }
+  #music-controls:hover {
+    color: #C40000;
+    cursor: pointer;
   }
 </style>

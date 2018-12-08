@@ -13,19 +13,19 @@
         <div class="releaseDate">
           <ul>
             <li>
-              <span class="glyphicon glyphicon-calendar"></span>&nbsp;
+              <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;
               {{article.releaseDate}}
             </li>
             <li>
-              <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;
+              <i class="fa fa-eye" aria-hidden="true"></i>&nbsp;
               {{article.views}}
             </li>
             <li>
-              <span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;
+              <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>&nbsp;
               {{article.likes}}
             </li>
             <li>
-              <span class="glyphicon glyphicon-calendar"></span>&nbsp;
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>&nbsp;
               {{article.comments}}
             </li>
           </ul>
@@ -101,11 +101,11 @@ export default {
     padding-left: 2%;
   }
   .releaseDate > ul {
-    text-align: left;
+    padding-left: 0;
   }
   .releaseDate > ul > li {
     float: left;
     list-style: none;
-    margin-right: 2%;
+    margin-right: 5%;
   }
 </style>
